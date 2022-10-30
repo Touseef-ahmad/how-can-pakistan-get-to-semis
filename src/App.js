@@ -45,10 +45,15 @@ export default function App() {
       <h1 class='text-lg text-cyan-400 font-bold'>Accurate Predictions so far</h1>
       <p class='text-cyan-400'>BAN win against ZIM</p>
       <p class='text-cyan-400'>PAK win against NED</p>
-      <h1 class='text-lg text-cyan-400 font-bold'>Simulator logs</h1>
+      <h1 class='text-lg text-cyan-400 font-bold'>Inaccurate Predictions so far</h1>
+      <p class='text-cyan-400'>SA win against IND</p>
+      <h1 class='text-lg text-cyan-400 font-bold'>How should rest of the matches play out?</h1>
         {logs.map(log => (
         <p class='text-cyan-400'>{log}</p>
-      ))}</div>
+      ))}
+                  <h1 class='text-lg text-cyan-400 font-bold font-italic'>Pakistan will have to maintain better run rate than India</h1>
+      </div>
+
     </div>
   )
 }

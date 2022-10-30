@@ -1,20 +1,20 @@
 // This table needs to be updated manually
 const pointsTable = {
-    IND: {
-        team: 'IND',
-        matchesPlayed: 2,
-        won: 2,
-        lost: 0,
-        draw: 0,
-        teamsPlayed: ['PAK', 'NED']
-    },
     SA: {
         team: 'SA',
-        matchesPlayed: 2,
-        won: 1,
+        matchesPlayed: 3,
+        won: 2,
         lost: 0,
         draw: 1,
-        teamsPlayed: ['BAN', 'ZIM']
+        teamsPlayed: ['BAN', 'ZIM', 'IND']
+    },
+    IND: {
+        team: 'IND',
+        matchesPlayed: 3,
+        won: 2,
+        lost: 1,
+        draw: 0,
+        teamsPlayed: ['PAK', 'NED', 'SA']
     },
     ZIM: {
         team: 'ZIM',
@@ -51,7 +51,7 @@ const pointsTable = {
 };
 
 export const AllTeams = [
-    'IND', 'PAK', 'SA', 'ZIM', 'BAN', 'NED'
+    'SA', 'PAK', 'IND', 'ZIM', 'BAN', 'NED'
 ];
 
 let teamsYetToPlayMatches = []; // teams that have not played all 5 matches
@@ -89,17 +89,9 @@ const getBiasedWinner = (team, oponent, favourite) => {
 /**
  * This is where all the Artificial Intelligence is ;)
  * In order for Pakistan no team should win more than 3 games
- * It's also very likely that india will win all their group matches
  */
 const shouldTeamWinTheMatch = (team, oponent) => {
-    if (team === 'PAK' || oponent === 'PAK') {
-        return getBiasedWinner(team, oponent, 'PAK');
-    }
-    if (team === 'IND' || oponent === 'IND') {
-        return getBiasedWinner(team, oponent, 'IND');
-    }
     if (pointsTable[team].won + 1 <= 3 && pointsTable[oponent].won + 1 <= 3) {
-        logger(`Outcome of ${team} vs ${oponent} does not matter, simulator will pick the strong side on paper`);
         return TeamsRankPoints[team] - TeamsRankPoints[oponent] > 0 ? [team, oponent] : [oponent, team];
     }
     return pointsTable[team].won + 1 > 3 ? [oponent, team] : [team, oponent];
@@ -127,7 +119,11 @@ const simulateNextMatch = () => {
     const [winner, loser] = shouldTeamWinTheMatch(team, oponent);
     updatePointsTable(winner, loser);
     updateTeamsYetToPlayMatches();
-    logger(`${team} plays  ${oponent}, winner = ${winner}, loser = ${loser}`);
+    if (TeamsRankPoints[winner] < TeamsRankPoints[loser]) {
+        logger(`${team} plays  ${oponent}, winner = ${winner}, loser = ${loser}, Unlikely outcome`);
+    } else {
+        logger(`${team} plays  ${oponent}, winner = ${winner}, loser = ${loser}`);
+    }
 };
 
 export const simulate = () => {
