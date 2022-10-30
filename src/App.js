@@ -42,6 +42,9 @@ export default function App() {
       </table>
       </div>
       <div class='bg-black p-8'>
+      <h1 class='text-lg text-cyan-400 font-bold'>Accurate Predictions so far</h1>
+      <p class='text-cyan-400'>BAN win against ZIM</p>
+      <p class='text-cyan-400'>PAK win against NED</p>
       <h1 class='text-lg text-cyan-400 font-bold'>Simulator logs</h1>
         {logs.map(log => (
         <p class='text-cyan-400'>{log}</p>
