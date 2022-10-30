@@ -34,19 +34,19 @@ const pointsTable = {
     },
     PAK: {
         team: 'PAK',
-        matchesPlayed: 2,
-        won: 0,
+        matchesPlayed: 3,
+        won: 1,
         lost: 2,
         draw: 0,
-        teamsPlayed: ['IND', 'ZIM']
+        teamsPlayed: ['IND', 'ZIM', 'NED']
     },
     NED: {
         team: 'NED',
-        matchesPlayed: 2,
+        matchesPlayed: 3,
         won: 0,
-        lost: 2,
+        lost: 3,
         draw: 0,
-        teamsPlayed: ['IND', 'BAN']
+        teamsPlayed: ['IND', 'BAN', 'PAK']
     },
 };
 
