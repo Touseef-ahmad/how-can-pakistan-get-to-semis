@@ -8,6 +8,7 @@ export default function App() {
 
   return (
     <div class="overflow-x-auto relative">
+      <div class="m-4">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -39,9 +40,11 @@ export default function App() {
           </tr>
       })}
       </table>
-      <h1>Simulator logs</h1>
-      <div class='bg-black'>{logs.map(log => (
-        <p class='text-white'>{log}</p>
+      </div>
+      <div class='bg-black p-8'>
+      <h1 class='text-lg text-cyan-400 font-bold'>Simulator logs</h1>
+        {logs.map(log => (
+        <p class='text-cyan-400'>{log}</p>
       ))}</div>
     </div>
   )
