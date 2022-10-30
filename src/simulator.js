@@ -18,19 +18,19 @@ const pointsTable = {
     },
     ZIM: {
         team: 'ZIM',
-        matchesPlayed: 2,
+        matchesPlayed: 3,
         won: 1,
-        lost: 0,
+        lost: 1,
         draw: 1,
-        teamsPlayed: ['PAK', 'SA']
+        teamsPlayed: ['PAK', 'SA', 'BAN']
     },
     BAN: {
         team: 'BAN',
-        matchesPlayed: 2,
-        won: 1,
+        matchesPlayed: 3,
+        won: 2,
         lost: 1,
         draw: 0,
-        teamsPlayed: ['SA', 'NED']
+        teamsPlayed: ['SA', 'NED', 'ZIM']
     },
     PAK: {
         team: 'PAK',
