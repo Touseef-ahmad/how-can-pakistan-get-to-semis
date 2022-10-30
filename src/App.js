@@ -8,6 +8,7 @@ export default function App() {
 
   return (
     <div class="overflow-x-auto relative">
+        <h1 class=' mx-4 text-lg font-bold font-italic'>Made with passion by Touseef Ahmad <a class="underline" href="https://www.linkedin.com/in/touseef-ahmad-cs/">Linked in Profile</a></h1>
       <div class="m-4">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
