@@ -10,27 +10,27 @@ const pointsTable = {
     },
     IND: {
         team: 'IND',
-        matchesPlayed: 3,
-        won: 2,
+        matchesPlayed: 4,
+        won: 3,
         lost: 1,
         draw: 0,
-        teamsPlayed: ['PAK', 'NED', 'SA']
+        teamsPlayed: ['PAK', 'NED', 'SA', 'BAN']
     },
     ZIM: {
         team: 'ZIM',
-        matchesPlayed: 3,
+        matchesPlayed: 4,
         won: 1,
-        lost: 1,
+        lost: 2,
         draw: 1,
-        teamsPlayed: ['PAK', 'SA', 'BAN']
+        teamsPlayed: ['PAK', 'SA', 'BAN', 'NED']
     },
     BAN: {
         team: 'BAN',
-        matchesPlayed: 3,
+        matchesPlayed: 4,
         won: 2,
-        lost: 1,
+        lost: 2,
         draw: 0,
-        teamsPlayed: ['SA', 'NED', 'ZIM']
+        teamsPlayed: ['SA', 'NED', 'ZIM', 'IND']
     },
     PAK: {
         team: 'PAK',
@@ -42,16 +42,16 @@ const pointsTable = {
     },
     NED: {
         team: 'NED',
-        matchesPlayed: 3,
-        won: 0,
+        matchesPlayed: 4,
+        won: 1,
         lost: 3,
         draw: 0,
-        teamsPlayed: ['IND', 'BAN', 'PAK']
+        teamsPlayed: ['IND', 'BAN', 'PAK', 'ZIM']
     },
 };
 
 export const AllTeams = [
-    'SA', 'PAK', 'IND', 'ZIM', 'BAN', 'NED'
+    'IND', 'PAK', 'SA', 'BAN', 'NED', 'ZIM'
 ];
 
 let teamsYetToPlayMatches = []; // teams that have not played all 5 matches
@@ -91,9 +91,15 @@ const getBiasedWinner = (team, oponent, favourite) => {
  * In order for Pakistan no team should win more than 3 games
  */
 const shouldTeamWinTheMatch = (team, oponent) => {
-    if (pointsTable[team].won + 1 <= 3 && pointsTable[oponent].won + 1 <= 3) {
-        return TeamsRankPoints[team] - TeamsRankPoints[oponent] > 0 ? [team, oponent] : [oponent, team];
+    if (team === 'NED' || oponent === 'NED') {
+        return getBiasedWinner(team, oponent, 'NED')
     }
+    if (team === 'IND' || oponent === 'IND') {
+        return getBiasedWinner(team, oponent, 'IND')
+    }
+    // if (pointsTable[team].won + 1 <= 3 && pointsTable[oponent].won + 1 <= 3) {
+    //     return TeamsRankPoints[team] - TeamsRankPoints[oponent] > 0 ? [team, oponent] : [oponent, team];
+    // }
     return pointsTable[team].won + 1 > 3 ? [oponent, team] : [team, oponent];
 };
 

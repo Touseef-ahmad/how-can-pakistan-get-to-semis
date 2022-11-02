@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <div class="overflow-x-auto relative">
-        <h1 class=' mx-4 text-lg font-bold font-italic'>Made with passion by Touseef Ahmad <a class="underline" href="https://www.linkedin.com/in/touseef-ahmad-cs/">Linked in Profile</a></h1>
+    <h1 class=' mx-4 text-lg font-bold font-italic'>Made with passion by Touseef Ahmad <a class="underline" href="https://www.linkedin.com/in/touseef-ahmad-cs/">Linked in Profile</a></h1>
       <div class="m-4">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -43,16 +43,10 @@ export default function App() {
       </table>
       </div>
       <div class='bg-black p-8'>
-      <h1 class='text-lg text-cyan-400 font-bold'>Accurate Predictions so far</h1>
-      <p class='text-cyan-400'>BAN win against ZIM</p>
-      <p class='text-cyan-400'>PAK win against NED</p>
-      <h1 class='text-lg text-cyan-400 font-bold'>Inaccurate Predictions so far</h1>
-      <p class='text-cyan-400'>SA win against IND</p>
       <h1 class='text-lg text-cyan-400 font-bold'>How should rest of the matches play out?</h1>
         {logs.map(log => (
         <p class='text-cyan-400'>{log}</p>
       ))}
-                  <h1 class='text-lg text-cyan-400 font-bold font-italic'>Pakistan will have to maintain better run rate than India</h1>
       </div>
 
     </div>
